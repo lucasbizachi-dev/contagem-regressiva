@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function iniciarContagem() {
+            let tempoRestante = 10;
+            let intervalo = setInterval(function() {
+                $('#tempo').text(tempoRestante);
+                tempoRestante--;
+                if (tempoRestante < 0 ) {
+                    clearInterval(intervalo)
+                    alert('Tempo esgotado!')
+                }
+            }, 1000)
+        }
+
+        $(document).ready(function() {
+            $('#iniciar-btn').click(function() {
+                iniciarContagem();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <span id="tempo">10</span> segundos restantes
+    </div>
+    <div>
+        <button id="iniciar-btn">Iniciar Contagem</button>
+    </div>
+</body>
+</html>
